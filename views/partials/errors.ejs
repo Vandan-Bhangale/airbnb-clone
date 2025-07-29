@@ -1,5 +1,5 @@
    <% if (errors.length > 0) { %>
               <% errors.forEach(error => { %>
-                <li style="color: red;"><%= error %></li>
+                <li style="color: red;"><%= error.msg %></li>
               <% }) %>
           <% } %>
