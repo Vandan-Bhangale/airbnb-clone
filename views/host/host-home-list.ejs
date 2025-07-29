@@ -1,0 +1,50 @@
+<%- include('../partials/head') %>
+  </head>
+ <body class="min-h-screen bg-gray-100">
+  <%- include('../partials/nav') %>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-blue-600 mb-8 text-center">
+        Our Regitered houses are here
+      </h1>
+      <div class="flex justify-center">
+        <a href="/add-home"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+          Add Home
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" style="display: flex; margin: 20px; justify-content: space-evenly; flex-wrap: wrap;">
+      <% registerdHouse.forEach(home => { %>
+        <div class="bg-white rounded-lg shadow-lg transition-transform duration-300" style="margin-left: 20px;">
+          <!-- ✅ Fixed Image Size -->
+          <img src= <%= home.photoUrl %> 
+               alt="House Image"  style="width: 150px; margin: 0;"
+               class="w-5 h-5 object-cover mx-auto rounded-t-lg">
+    
+          <div class="p-4">
+            <!-- ✅ Allow multiline text + no cutoff -->
+            <h2 class="text-lg font-semibold text-gray-800 mb-1 whitespace-normal break-words">
+              <%= home.houseName %>
+            </h2>
+            <p class="text-sm text-gray-600 mb-2 whitespace-normal break-words">
+              <%= home.Location %>
+            </p>
+            <p class="text-sm text-yellow-500 font-medium">
+              ⭐ <%= home.Rating %>
+            </p>
+            <p class="text-md font-bold text-gray-800 mt-2 whitespace-normal break-words">
+              Rs.<%= home.Price %> /-
+            </p>
+            <a href="/host/edit-home/<%= home._id %>?editing=true" style="background-color: rgb(57, 131, 235); padding: 5px;">Edit</a>
+            <form action="/host/delete-home/<%= home._id %>" method="POST">
+              <button class="bg-red-500" style="padding: 5px;">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<%- include('../partials/head') %>
+</head>
+<body class="min-h-screen bg-gray-100">
+  <%- include('../partials/nav') %>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-blue-600 mb-8 text-center">Your favourite list</h1>
+    </div>
+    <div style="display: flex; margin: 20px; justify-content: space-evenly; flex-wrap: wrap;">
+      <% favouriteHomes.forEach(home => { %>
+        <div style="margin-left: 20px; display: flex; justify-content: space-evenly;">
+          <!-- ✅ Fixed Image Size -->
+          <img src= <%= home.photoUrl %> 
+               alt="House Image"  style="width: 150px; margin: 0;"
+               class="w-5 h-5 object-cover mx-auto rounded-t-lg">
+    
+          <div class="p-4" style="margin-left: 20px; margin-bottom: 5px;">
+            <!-- ✅ Allow multiline text + no cutoff -->
+            <h2 class="text-lg font-semibold text-gray-800 mb-1 whitespace-normal break-words" style="text-decoration: underline;">
+              <%= home.houseName %>
+            </h2>
+            <p class="text-sm text-gray-600 mb-2 whitespace-normal break-words">
+              <%= home.Location %>
+            </p>
+            <p class="text-sm text-yellow-500 font-medium">
+              ⭐ <%= home.Rating %>
+            </p>
+            <p class="text-md font-bold text-gray-800 mt-2 whitespace-normal break-words" style="margin-bottom: 30px;">
+              Rs.<%= home.Price %> /-
+            </p>
+            <a class="bg-gray-300" style="margin: 30px 30px 0 0; cursor: pointer; background-color: rgb(102, 232, 102); padding: 10px; border-radius: 20px;" href="/homes/<%= home._id %>">Details</a>
+
+            <form action="/favourites/delete-home/<%= home._id %>" method="POST"><button type="submit" style="margin-top: 20px; padding: 10px; cursor: pointer; background-color: red; border-radius: 20px;">Delete</button></form> 
+
+            <!-- <a class="bg-gray-300" style="margin: 30px 30px 0 0; cursor: pointer; background-color: rgb(119, 132, 119); padding: 10px; border-radius: 20px;" href="/homes/<%= home._id %>">Book</a> -->
+          </div>
+          <% }) %>
+  </body>
+</html>
