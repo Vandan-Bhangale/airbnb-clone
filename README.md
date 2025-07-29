@@ -37,7 +37,7 @@ _(Optional: Add screenshots here if available)_
 ---
 
 ## 📁 Project Structure
-
+```
 airbnb-clone/
 │
 ├── public/ # Static files (CSS, images)
@@ -50,7 +50,7 @@ airbnb-clone/
 ├── controllers/ # Route controllers
 ├── app.js # Main server file
 └── package.json # Dependencies and scripts
-
+```
 ---
 
 ## ⚙️ Setup Instructions
