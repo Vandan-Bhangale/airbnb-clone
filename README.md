@@ -58,7 +58,7 @@ airbnb-clone/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/airbnb-clone.git
+git clone https://github.com/Vandan-Bhangale/airbnb-clone.git
 cd airbnb-clone
 ```
 ## 2. Install dependencies
